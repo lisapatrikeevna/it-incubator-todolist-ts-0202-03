@@ -25,7 +25,6 @@ export function Todolist(props: PropsType) {
     const addTask = (title: string)=>{ props.addTask(title, props.id)}
     const changeTodoListTitle = (title:string)=>{
         props.changeTodoListTitle(props.id, title)
-
     }
     const removeTodoLostBTN=()=>{props.removeTodoLost(props.id)}
     return (
