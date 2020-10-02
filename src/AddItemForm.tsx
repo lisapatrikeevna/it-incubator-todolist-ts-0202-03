@@ -8,15 +8,18 @@ import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 type propsType={
     addItem: (title: string) => void
+
 }
-export function AddIemForm(props:propsType){
+export const AddIemForm = React.memo((props:propsType)=>{
     let[title, setTitle]=useState<string>('');
     let[error,setError]=useState<string | null>(null);
     const newTask= (e:ChangeEvent<HTMLInputElement>)=>{
         setError(null);
         setTitle(e.currentTarget.value);
     }
-    const ifOnKeyPress = (e:KeyboardEvent<HTMLInputElement>) => {if(e.key==='Enter'){addNewTitle()}}
+    const ifOnKeyPress = (e:KeyboardEvent<HTMLInputElement>) => {
+        if(error !== null){ setError(null); }
+        if(e.key==='Enter'){addNewTitle()}}
     const addNewTitle=()=>{
         if(title.trim()){
             props.addItem(title.trim());
@@ -49,5 +52,5 @@ export function AddIemForm(props:propsType){
             {/* </div>} */}
         </div>
     )
-}
+})
 // export default AddIemForm;
