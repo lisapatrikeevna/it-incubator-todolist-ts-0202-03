@@ -37,7 +37,7 @@ export type ChangeTaskTitleActionType= {
     todolistId: string
 }
 
-let initialState:taskStateType= {}
+let initialState:taskStateType= {} as taskStateType
 
 export const TaskReducer= (state=initialState, action:ActionType ):taskStateType  =>{
     switch (action.type) {
