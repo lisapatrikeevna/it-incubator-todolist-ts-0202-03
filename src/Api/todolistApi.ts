@@ -1,5 +1,4 @@
-
-import axios from 'axios'
+import axios from 'axios';
 
 
 const smb=axios.create({
@@ -9,7 +8,7 @@ const smb=axios.create({
         'API-KEY': '40979d82-3c32-4398-abbe-81041d6b3ea6'
     }
 })
-type TodolistType= {
+export type TodolistType= {
     id: string
     addedDate: string
     order: number
@@ -25,7 +24,7 @@ type ResponseType<T> = {
 export const todolistAPI = {
 
     getTodolists(){
-        return smb.get<Array<TodolistType>>('todo-lists/')
+        return smb.get<Array<TodolistType>>('todo-lists')
     },
     createTodolist(title:string){
       return  smb.post<ResponseType<{ item: TodolistType }>>('todo-lists', {title:title})
@@ -35,5 +34,16 @@ export const todolistAPI = {
     },
     updateTodolist(todolistId: string, title: string) {
         return smb.put<ResponseType<{ item: TodolistType }>>(`todo-lists/ ${todolistId}`, {title: title})
-    }
+    },
+    getTodoTasks(todolistId:string){
+        debugger
+       return smb.get(`todo-lists/${todolistId}/tasks`)
+    },
+    createTodoTasks(todolistId:string,title: string){
+        return smb.post(`todo-lists/${todolistId}/tasks`, {title})
+    },
+    deletTodoTasks(todolistId:string,taskId:string){
+        debugger
+        return smb.delete(`todo-lists/${todolistId}/tasks{taskId}`)
+    },
 }

@@ -1,10 +1,12 @@
-import React, {useState, ChangeEvent, KeyboardEvent, useCallback} from 'react';
+import React, {useState, ChangeEvent, KeyboardEvent, useCallback, useEffect} from 'react';
 import {tasksType, filterTaskType} from './App';
 import {AddIemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import {IconButton, Button, Checkbox, Grid, Paper} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
 import {Task} from "./Task";
+import {addTaskTC, deleteTaskTC, getTasksTC} from "./state/TasksRreducer";
+import {useDispatch} from "react-redux";
 
 
 type PropsType = {
@@ -36,7 +38,17 @@ export const Todolist = React.memo((props: PropsType) => {
     const onAllClickHandler= useCallback(() => {props.changeFilter('all', props.id) }, [props.changeFilter, props.id]);
     const onActiveClickHandler =useCallback(() => {props.changeFilter('active', props.id) }, [props.changeFilter, props.id]);
     const onCompletedClickHandler =useCallback(() => {props.changeFilter('completed', props.id) }, [props.changeFilter, props.id]);
+    const  dispatch = useDispatch();
 
+    useEffect(()=>{
+        dispatch(getTasksTC)
+    },[])
+    useEffect(()=>{
+        dispatch(deleteTaskTC)
+    },[])
+    useEffect(()=>{
+        dispatch(addTaskTC)
+    })
     let tasksForTodo:Array<tasksType> = props.tasks;
     if (props.filter === 'active') {
         tasksForTodo = tasksForTodo.filter(t => t.isDone === true)
