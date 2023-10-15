@@ -1,23 +1,8 @@
-/* .App {
+.App {
   padding: 30px;
+  display: flex;
 }
-.wrapTodolist{
-  justify-content: space-between;
-    margin-top: 30px;
-    display: flex;
-}
-/* .App > div {
+
+.App > div {
   margin-right: 50px;
-} */
-.mainInput{
-    /* position: absolute; */
-    /* top: 30px;
-    bottom: 30px; */
-} */
-.todoList ul{
-  list-style: none;
-    padding: 0;
 }
-/* .todoList li>span{
-  padding: 0 5%;
-} */

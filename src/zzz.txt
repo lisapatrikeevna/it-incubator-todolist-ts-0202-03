@@ -1,0 +1,23 @@
+yarn add uuid
+yarn add @types/uuid
+yarn add @mui/material @emotion/react @emotion/styled
+yarn add @mui/icons-material
+yarn add react-redux
+yarn add redux
+yarn add redux-thunk
+yarn add @reduxjs/toolkit
+yarn add redux-thunk
+
+
+"homepage":"https://yourusername.github.io/repository-name"
+git config user.name
+npm install --save gh-pages
+yarn add  gh-pages
+"scripts":{
+ "predeploy": "npm run build", //  "predeploy": "yarn run build",
+ "deploy": "gh-pages -d build",
+}
+
+//Username for 'https://github.com': lisapatrikeevna
+//Password for 'https://lisapatrikeevna@github.com':dr026202
+

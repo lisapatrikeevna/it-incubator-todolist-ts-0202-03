@@ -1,0 +1,23 @@
+.df{
+    display: flex;
+}
+.borderBottomCl{
+    border-bottom: 2px;
+    padding-bottom: 3px;
+
+}
+.editableSpanWrap{
+    padding: 10px;
+}
+.btnsWrap{
+    display: flex;
+    justify-content: space-between;
+}
+.wrapItemTodo{
+    padding: 13px;
+}
+.taskItemWrap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
